@@ -26,7 +26,7 @@ const MaxValue = nameOfFreelancer.length;
 const freelancersList = [];
 
 
-// `setInterval` will call `freelancers` every 2000 milliseconds (2 second)
+// `setInterval` will call `freelancersList` every 1000 milliseconds (1 second)
  const freelancersIntervalId = setInterval(addfreelancers, 1000);
 
  //render(); // We call this function once to render the initial state
@@ -45,7 +45,7 @@ function render() {
     availableFreelancer.replaceChildren(...nameElements);
 }
 function addfreelancers (){
-    const randomIndex = Math.floor(Math.random() * nameOfFreelancer.length);
+    const randomIndex = Math.floor(Math.random() * nameOfFreelancer.length);//randomly assign the indexs and the name, occupation and prices associated with the index will be the output
     const randomName = nameOfFreelancer[randomIndex];
     const randomOccupation = occupations[randomIndex];
     const randomPrice = startingPrice[randomIndex];
@@ -57,18 +57,18 @@ while (freelancersList.some((freelancer) => freelancer.name === randomName)) {
 }
 
     freelancersList.push({ name: randomName, occupation: randomOccupation, startingPrice: randomPrice });
-
-    // Call the averagePrice function
     render();
+    // Call the averagePrice function
+   
     averagePrice()
-      // TODO: Stop adding shapes if we've reached the maximum number of shapes
+      // TODO: Stop adding names if we've reached the maximum number of names
     if (freelancersList.length >= MaxValue) {
      clearInterval(freelancersIntervalId);
     }
 
 }
 function averagePrice() {
-    // Assuming countTotalPrice is defined somewhere in your code
+    // countTotalPrice is storing the value of the freelancerslist.prices
    let countTotalPrice = freelancersList.map((freelancer) => freelancer.startingPrice);
 
     let sum = 0;
@@ -80,18 +80,4 @@ function averagePrice() {
     const averagePriceElement = document.querySelector("#averagePrice");
     averagePriceElement.innerText = `Average Price of All Freelancers: $${avg.toFixed(2)}`;
 }
-
-// Run the function after the document has fully loaded
-
-/*
-function averagePrice (){
-    let  = 0;
-    for (let i = 0; i < countTotalPrice.length; i++ ){
-     sum += countTotalPrice[i];
-    }
-    const avg = sum / countTotalPrice.length;
-    const averagePriceElement = document.querySelector("#averagePrice");
-    averagePriceElement.innerText = `Average Price of All Freelancers: $${avg.toFixed(2)}`;
-}
-averagePrice(); */
 // The result will displayed in the averagePriceElement with two decimal places 
