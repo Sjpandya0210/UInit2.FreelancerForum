@@ -1,0 +1,26 @@
+Body{
+    background-color: rgb(238, 243, 241);
+}
+h1{
+    color: rgb(21, 21, 238);
+    margin-left: 10%;
+}
+h2{
+    color: rgb(40, 40, 184);
+    margin-left: 10%;
+}
+h3{
+    color: rgb(51, 51, 129); 
+    text-align: center;
+}
+p{
+    margin-left: 10%; 
+}
+
+.Grid-Parent {
+display: flex;
+justify-content:space-between;
+}
+ul{
+    list-style-type: none;
+}
